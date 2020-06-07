@@ -47,7 +47,7 @@ fitmodel = model.fit(x_train,y_train,batch_size=512,epochs=40,verbose=1,validati
 results = print(model.evaluate(test_data,test_label))
 #SAVING MODEL
 
-#model.save('text_clf.h5')
+#model.save('data//text_clf.h5')
 # review_data = test_data[0]
 # predict = model.predict([review_data])
 # print('review',decode_review(review_data))
@@ -67,9 +67,9 @@ def review_encode(s):
     return encoded
 
 
-model = keras.models.load_model('text_clf.h5')
+model = keras.models.load_model('data//text_clf.h5')
 
-with open ("test.txt") as f:
+with open ("data//test.txt") as f:
     for line in f.readlines():
         nline = line.replace(",","").replace(".","").replace("(","").replace(")","").replace(":","").replace("\"","").replace("!","").replace("?","").strip()
         encode =  review_encode(nline)
